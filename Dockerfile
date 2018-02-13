@@ -3,7 +3,7 @@ FROM ruby:2.4.3-slim
 ENV YARN_VERSION='latest'
 
 RUN export DEBIAN_FRONTEND=noninteractive \
-  && apt-get update -qq \
+  && apt-get update \
   && apt-get install -y --no-install-recommends apt-utils \
     curl \
     build-essential \
@@ -29,4 +29,4 @@ RUN export DEBIAN_FRONTEND=noninteractive \
   && apt-get purge -y --auto-remove \
   && rm -rf /var/lib/apt/lists/*
 
-CMD ["bash"]  
+CMD ["bash"]    
