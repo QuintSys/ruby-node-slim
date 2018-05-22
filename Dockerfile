@@ -1,5 +1,6 @@
 FROM ruby:2.4.3-slim
 
+ENV NODE_VERSION='6.x'
 ENV YARN_VERSION='latest'
 
 RUN export DEBIAN_FRONTEND=noninteractive \
@@ -10,7 +11,7 @@ RUN export DEBIAN_FRONTEND=noninteractive \
     libxml2-dev \
     libxslt1-dev \
     libcurl4-openssl-dev \
-  && curl -sL https://deb.nodesource.com/setup_4.x | bash \
+  && curl -sL https://deb.nodesource.com/setup_${NODE_VERSION} | bash \
   && apt-get install -y --no-install-recommends nodejs \
   && apt-get upgrade -y \
   && if [ -n "$YARN_VERSION" ]; then \
