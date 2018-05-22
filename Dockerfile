@@ -1,7 +1,7 @@
-FROM ruby:2.4.3-slim
+FROM ruby:2.5.1-slim
 
-ENV NODE_VERSION='6.x'
-ENV YARN_VERSION='latest'
+ENV NODE_VERSION='6.x' \
+    YARN_VERSION='latest'
 
 RUN export DEBIAN_FRONTEND=noninteractive \
   && apt-get update \
@@ -11,6 +11,8 @@ RUN export DEBIAN_FRONTEND=noninteractive \
     libxml2-dev \
     libxslt1-dev \
     libcurl4-openssl-dev \
+    gnupg \
+    dirmngr \
   && curl -sL https://deb.nodesource.com/setup_${NODE_VERSION} | bash \
   && apt-get install -y --no-install-recommends nodejs \
   && apt-get upgrade -y \
