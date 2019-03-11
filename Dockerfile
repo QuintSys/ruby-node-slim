@@ -1,4 +1,4 @@
-FROM ruby:2.5.1-slim
+FROM ruby:2.6.1-slim
 
 ENV NODE_VERSION='6.x' \
     YARN_VERSION='latest'
